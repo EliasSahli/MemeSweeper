@@ -9,15 +9,15 @@ RectI::RectI( int left_in,int right_in,int top_in,int bottom_in )
 {
 }
 
-RectI::RectI( const Vei2& topLeft,const Vei2 & bottomRight )
+RectI::RectI( const Vec2& topLeft,const Vec2 & bottomRight )
 	:
 	RectI( topLeft.x,bottomRight.x,topLeft.y,bottomRight.y )
 {
 }
 
-RectI::RectI( const Vei2& topLeft,int width,int height )
+RectI::RectI( const Vec2& topLeft,int width,int height )
 	:
-	RectI( topLeft,topLeft + Vei2( width,height ) )
+	RectI( topLeft,topLeft + Vec2( width,height ) )
 {
 }
 
@@ -33,9 +33,9 @@ bool RectI::IsContainedBy( const RectI & other ) const
 		top >= other.top && bottom <= other.bottom;
 }
 
-RectI RectI::FromCenter( const Vei2 & center,int halfWidth,int halfHeight )
+RectI RectI::FromCenter( const Vec2 & center,int halfWidth,int halfHeight )
 {
-	const Vei2 half( halfWidth,halfHeight );
+	const Vec2 half( halfWidth,halfHeight );
 	return RectI( center - half,center + half );
 }
 
@@ -44,7 +44,7 @@ RectI RectI::GetExpanded( int offset ) const
 	return RectI( left - offset,right + offset,top - offset,bottom + offset );
 }
 
-Vei2 RectI::GetCenter() const
+Vec2 RectI::GetCenter() const
 {
-	return Vei2( (left + right) / 2,(top + bottom) / 2 );
+	return Vec2( (left + right) / 2,(top + bottom) / 2 );
 }

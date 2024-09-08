@@ -11,6 +11,7 @@ public:
 	RectI( const Vec2& topLeft,int width,int height );
 	bool IsOverlappingWith( const RectI& other ) const;
 	bool IsContainedBy( const RectI& other ) const;
+	bool Contains(const Vec2& point) const;
 	static RectI FromCenter( const Vec2& center,int halfWidth,int halfHeight );
 	RectI GetExpanded( int offset ) const;
 	Vec2 GetCenter() const;
